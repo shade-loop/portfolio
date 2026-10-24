@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Pratyush Gosain — computer science student building AI applications, full-stack systems, and developer tools."/>
+<meta name="theme-color" content="#0d0d0b"/>
 <title>Pratyush Gosain — Developer & AI/ML Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -368,6 +370,16 @@ section {
   font-weight: 300;
 }
 .project-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.project-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.25rem; position: relative; z-index: 1; }
+.project-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  color: var(--accent); text-decoration: none; font-size: 12px;
+  letter-spacing: 0.04em; padding: 7px 11px;
+  border: 0.5px solid rgba(200,184,154,0.25); border-radius: 4px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.project-link:hover { background: var(--accent-glow); border-color: var(--accent); transform: translateY(-1px); }
+.project-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .tag {
   font-size: 11px;
   background: rgba(232,230,223,0.04);
@@ -521,8 +533,18 @@ footer {
   .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
   .nav-links { display: none; }
   .project-top { flex-direction: column; gap: 0.5rem; }
+  .project-card { padding: 1.5rem; }
+  .project-num { top: 1.5rem; right: 1.5rem; }
   body { cursor: auto; }
   #cursor, #cursor-ring { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 </style>
 </head>
@@ -552,7 +574,7 @@ footer {
       Building software<br/>that <em>thinks, adapts,</em><br/>and ships.
     </h1>
     <p class="hero-sub">
-      I'm Pratyush — a CS &amp; AI/ML undergrad who takes ideas from whiteboard to working prototype. Full-stack web, machine learning systems, and hardware in between.
+      I'm Pratyush — a computer science undergrad building AI-powered products, full-stack systems, and practical developer tools. I like taking ideas from a rough concept to a working, testable prototype.
     </p>
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary magnetic">View my work ↓</a>
@@ -563,9 +585,9 @@ footer {
       <span class="soc-div"></span>
       <a href="https://www.linkedin.com/in/pratyush-gosain-3b1394249/" target="_blank" rel="noopener">LinkedIn</a>
       <span class="soc-div"></span>
-      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.instagram.com/pratyushg2910/" target="_blank" rel="noopener">Instagram</a>
       <span class="soc-div"></span>
-      <a href="#" target="_blank" rel="noopener">X</a>
+      <a href="https://x.com/GosainPratyush" target="_blank" rel="noopener">X</a>
     </div>
   </div>
   <div class="hero-scroll-hint">
@@ -588,16 +610,19 @@ footer {
     <div class="project-card reveal reveal-delay-1">
       <span class="project-num">01</span>
       <div class="project-top">
-        <h3 class="project-name">CareCircle</h3>
-        <span class="project-badge">Ideathon — PSG Tech 2026</span>
+        <h3 class="project-name">CareCircle Companion</h3>
+        <span class="project-badge">AI Agent · Healthcare</span>
       </div>
-      <p class="project-desc">Family health coordination platform for Indian households. Covers medication tracking, vitals monitoring with WHO-threshold alerts, caregiver burnout detection, and an AI care intelligence layer that parses natural-language instructions and flags health risks using regression models.</p>
+      <p class="project-desc">A family health-coordination platform that brings medication schedules, vitals, appointments, and caregiver tasks into one workflow. Its companion agent uses tool-calling and a lightweight memory store to help coordinate care and surface relevant risks.</p>
       <div class="project-tags">
         <span class="tag">Next.js</span>
-        <span class="tag">Node.js / Express</span>
-        <span class="tag">MongoDB</span>
-        <span class="tag">AI / Regression</span>
-        <span class="tag">JWT Auth</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Gemini API</span>
+        <span class="tag">Tool Calling</span>
+        <span class="tag">Healthcare AI</span>
+      </div>
+      <div class="project-links">
+        <a class="project-link" href="https://github.com/shade-loop/carecircle-companion-agent" target="_blank" rel="noopener noreferrer" aria-label="View CareCircle Companion source code on GitHub">View on GitHub ↗</a>
       </div>
     </div>
 
@@ -605,47 +630,106 @@ footer {
       <span class="project-num">02</span>
       <div class="project-top">
         <h3 class="project-name">MedRAG+</h3>
-        <span class="project-badge">AI/ML — RAG Pipeline</span>
+        <span class="project-badge">RAG · Medical NLP</span>
       </div>
-      <p class="project-desc">Retrieval-augmented generation pipeline built for CareCircle's medical intelligence layer. Uses LLaMA as the base LLM with a custom RAG architecture to ground clinical responses in retrieved medical context — reducing hallucinations and improving accuracy for real household health queries.</p>
+      <p class="project-desc">A retrieval-augmented generation pipeline designed to ground caregiving answers in a curated medical knowledge base. Uses document chunking, sentence-transformer embeddings, FAISS retrieval, and a locally served language model, with ingestion and retrieval integrated into the CareCircle workflow.</p>
       <div class="project-tags">
-        <span class="tag">LLaMA</span>
-        <span class="tag">RAG</span>
         <span class="tag">Python</span>
-        <span class="tag">Vector Search</span>
-        <span class="tag">Medical NLP</span>
-        <span class="tag">LangChain</span>
+        <span class="tag">FAISS</span>
+        <span class="tag">Sentence Transformers</span>
+        <span class="tag">Ollama</span>
+        <span class="tag">RAG</span>
+      </div>
+      <div class="project-links">
+        <a class="project-link" href="https://github.com/shade-loop/medrag-plus" target="_blank" rel="noopener noreferrer" aria-label="View MedRAG+ source code on GitHub">View on GitHub ↗</a>
       </div>
     </div>
 
     <div class="project-card reveal reveal-delay-3">
       <span class="project-num">03</span>
       <div class="project-top">
-        <h3 class="project-name">QuantPulse</h3>
-        <span class="project-badge">IEEE Paper</span>
+        <h3 class="project-name">FaceID + Blockchain Verification</h3>
+        <span class="project-badge">Computer Vision · Web3</span>
       </div>
-      <p class="project-desc">High-frequency algorithmic trading simulator with sentiment-aware market prediction. Real-time MongoDB time-series collections, FastAPI for low-latency order execution, and a React dashboard for live portfolio analytics.</p>
+      <p class="project-desc">A verification prototype combining face encoding with tamper-evident evidence records. The project uses InsightFace/ONNX for face representations and a Solidity evidence registry, with canonicalization, SHA-256 hashing, and verification tests to support integrity checks.</p>
       <div class="project-tags">
-        <span class="tag">FastAPI</span>
-        <span class="tag">React 18</span>
-        <span class="tag">MongoDB Time-Series</span>
-        <span class="tag">Sentiment Analysis</span>
         <span class="tag">Python</span>
+        <span class="tag">InsightFace</span>
+        <span class="tag">ONNX</span>
+        <span class="tag">Solidity</span>
+        <span class="tag">Hardhat</span>
+        <span class="tag">Polygon Amoy</span>
+      </div>
+      <div class="project-links">
+        <a class="project-link" href="https://github.com/shade-loop/face_id_blockchain_verification" target="_blank" rel="noopener noreferrer" aria-label="View FaceID + Blockchain Verification source code on GitHub">View on GitHub ↗</a>
       </div>
     </div>
 
     <div class="project-card reveal reveal-delay-4">
       <span class="project-num">04</span>
       <div class="project-top">
-        <h3 class="project-name">Smart Emergency Response DSS</h3>
-        <span class="project-badge">Academic AI Project</span>
+        <h3 class="project-name">QuantPulse</h3>
+        <span class="project-badge">Research · Trading Systems</span>
       </div>
-      <p class="project-desc">Python-based decision support system for emergency response. Uses AI planning and prioritization logic to assist responders with resource allocation and incident triage under time-critical conditions.</p>
+      <p class="project-desc">A real-time algorithmic trading simulator exploring market signals, sentiment-aware analysis, order execution, and portfolio monitoring. The research project focuses on connecting streaming data and simulation logic with an analytics dashboard.</p>
       <div class="project-tags">
         <span class="tag">Python</span>
-        <span class="tag">AI Planning</span>
-        <span class="tag">Decision Systems</span>
-        <span class="tag">Resource Allocation</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">React</span>
+        <span class="tag">MongoDB Time-Series</span>
+        <span class="tag">Sentiment Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-1">
+      <span class="project-num">05</span>
+      <div class="project-top">
+        <h3 class="project-name">AlgoMentor AI</h3>
+        <span class="project-badge">Developer Tools · GenAI</span>
+      </div>
+      <p class="project-desc">An AI-assisted DSA learning tool designed to explain algorithmic concepts and make problem-solving more visual. The prototype pairs a lightweight web interface and SVG-based visualizations with a Node/Express backend and an LLM API.</p>
+      <div class="project-tags">
+        <span class="tag">HTML / CSS / JavaScript</span>
+        <span class="tag">SVG</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">LLM API</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-3">
+      <span class="project-num">06</span>
+      <div class="project-top">
+        <h3 class="project-name">FounderOS</h3>
+        <span class="project-badge">AI Product · Hackathon</span>
+      </div>
+      <p class="project-desc">An AI-focused founder workflow concept built for rapid prototyping, bringing product thinking and AI-assisted workflows together in a single project. Explore the repository for the current implementation and project details.</p>
+      <div class="project-tags">
+        <span class="tag">AI Engineering</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Prototype</span>
+      </div>
+      <div class="project-links">
+        <a class="project-link" href="https://github.com/shade-loop/founderos-ai" target="_blank" rel="noopener noreferrer" aria-label="View FounderOS source code on GitHub">View on GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-2">
+      <span class="project-num">06</span>
+      <div class="project-top">
+        <h3 class="project-name">OneAtlas</h3>
+        <span class="project-badge">Full-Stack Platform</span>
+      </div>
+      <p class="project-desc">A full-stack monorepo built around a Next.js API layer, Prisma-backed PostgreSQL, authentication, and caching. The project explores the integration of production-oriented backend services and a modern web application stack.</p>
+      <div class="project-tags">
+        <span class="tag">Next.js</span>
+        <span class="tag">Prisma</span>
+        <span class="tag">Neon Postgres</span>
+        <span class="tag">Clerk</span>
+        <span class="tag">Upstash Redis</span>
+      </div>
+      <div class="project-links">
+        <a class="project-link" href="https://github.com/shade-loop/oneatlas" target="_blank" rel="noopener noreferrer" aria-label="View OneAtlas source code on GitHub">View on GitHub ↗</a>
       </div>
     </div>
 
@@ -679,19 +763,30 @@ footer {
     <div class="skill-group reveal reveal-delay-3">
       <p class="skill-group-name">Backend & Data</p>
       <div class="skill-list">
-        <span class="skill-item">FastAPI</span>
+        <span class="skill-item">FastAPI / Flask</span>
         <span class="skill-item">Node.js / Express</span>
-        <span class="skill-item">MongoDB</span>
+        <span class="skill-item">MongoDB / PostgreSQL</span>
+        <span class="skill-item">Prisma / Redis</span>
         <span class="skill-item">REST APIs</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-4">
       <p class="skill-group-name">AI / ML</p>
       <div class="skill-list">
-        <span class="skill-item">LLaMA / RAG Pipelines</span>
-        <span class="skill-item">LangChain</span>
+        <span class="skill-item">RAG / Vector Search</span>
+        <span class="skill-item">Gemini / LLaMA</span>
+        <span class="skill-item">FAISS / Embeddings</span>
         <span class="skill-item">NLP & Sentiment Analysis</span>
-        <span class="skill-item">Regression Models</span>
+        <span class="skill-item">scikit-learn / TensorFlow</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-delay-3">
+      <p class="skill-group-name">Blockchain & Vision</p>
+      <div class="skill-list">
+        <span class="skill-item">Solidity / Hardhat</span>
+        <span class="skill-item">Ethers.js</span>
+        <span class="skill-item">InsightFace / ONNX</span>
+        <span class="skill-item">Evidence Hashing</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-1">
@@ -706,8 +801,9 @@ footer {
     <div class="skill-group reveal reveal-delay-2">
       <p class="skill-group-name">Research</p>
       <div class="skill-list">
-        <span class="skill-item">IEEE Paper Writing</span>
-        <span class="skill-item">Patent Documentation</span>
+        <span class="skill-item">Research Prototyping</span>
+        <span class="skill-item">Technical Writing</span>
+        <span class="skill-item">Experiment Documentation</span>
         <span class="skill-item">Technical Presentations</span>
       </div>
     </div>
@@ -759,7 +855,7 @@ footer {
   <div class="contact-layout">
     <div class="reveal">
       <h2 class="contact-headline">Let's build something together.</h2>
-      <p class="contact-sub">Open to freelance work in full-stack development and AI/ML systems. Drop me an email or connect on any platform below.</p>
+      <p class="contact-sub">Open to internships, collaborations, and freelance projects across AI engineering and full-stack development. Drop me an email or connect below.</p>
       <a href="mailto:pratyush29gosain@gmail.com" class="btn-primary magnetic">Send an email →</a>
     </div>
     <div class="contact-links reveal reveal-delay-2">
